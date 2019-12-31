@@ -1,42 +1,43 @@
-#클래스:멤버와 메소드를 가지는 객체, 인스턴스: 클래스를 호출하여 만들어지는 객체(사용하려는 변수),멤버:클래스가 갖는 객체, 메소드:클래스 내에 정의된 함수, 속성(어트리뷰트) == 쿨래스의 멤버 : 멤버+메소드
-#클래스의 예:은행계좌(소유주이름,계좌잔고 등으로 표현할 수 있는 가장 대표적인 이해하기 쉬운 예)
-class Acount:#만일 __init__에 init으로만 되어 있다면 인자는 두개만 받고, 두개 만 받기 때문에 인스턴스를 생성을 못하므로 인스턴스를 따로 Acount()로 생성해준 뒤에 그다음에 인자를 넘겨줘야한다.
-    def __init__(self,name,amount): #생성자 , 인수로 name과 계좌 ,self 주의, self를 빼면 인스턴스가 생성이안됨
-        self.name = name    #계좌 정보의 초기화, self는 생략 가능하지만 있는게 좋음.
-        self.balance = amount #balance는 잔고임, 계좌의 정보를 받아와서 클래스의 멤버 값들을 초기화 시켜줌.
-        print("%s님 계좌가 걔설되었습니다."% self.name, end =" ")
-        print("%s 님의 잔고는 %d 입니다." % (self.name, self.balance)) #두개 이상의 멤버를 줄 땐 괄호를 씌워줘야한다.
-        print()
 
-    def deposiot(self,amount):#이것도 치면 바로 self가 생성됨, 인스턴스임, 입금 함수인듯
-        self.balance += amount
-        print("%s님의 계좌에 %d 입급되었습니다."%(self.name,amount))
-        print("%s님의 계좌잔고는 %d입니다."%(self.name,self.balance))
-        print()
-
-    def info(self):
-        print("%s님의 계좌잔고는 %d입니다." % (self.name, self.balance))
-        print()
-
-    def withdraw(self,amount):    #출금
-        self.balance -= amount
-        print("%s님의 계좌에 %d 출금되었습니다."%(self.name,amount))
-        print("%s님의 계좌잔고는 %d입니다."%(self.name,self.balance))
-        print()
-
-a1 = Acount("홍길동",10000) #다른 언어처럼 new로 생성하지 않고 바로 클래스의 이름을 주어 생성, 클래스에서 넘겨받은 self은 a1임, 즉 생성하고자하는 인스턴스, 즉 참조객체
-b1 = Acount("홍길녀",50000) #만일 클래스에서 self를 없애버리면 인스턴스가 생성이안되서 아무리 또 다른 애들을 생성하려해도 생성이안되서 오류는 안뜨지만 홍길녀것만 생길것.
-c1 = Acount("최범규",100000)
-b1.deposiot(500000)
-
-c1.deposiot(100000)  #두가지 모습으로 다 접급할 수 잇다.
-Acount.deposiot(c1,100000) #두 모습 다 결과는 같지만 이 방법이 훨씬 더 정석의 방법이다.
-c1.withdraw(50000)
-Acount.withdraw(c1,50000)
-
-a1.info()
-b1.info()
-b1.withdraw(20000)
+# #클래스:멤버와 메소드를 가지는 객체, 인스턴스: 클래스를 호출하여 만들어지는 객체(사용하려는 변수),멤버:클래스가 갖는 객체, 메소드:클래스 내에 정의된 함수, 속성(어트리뷰트) == 쿨래스의 멤버 : 멤버+메소드
+# #클래스의 예:은행계좌(소유주이름,계좌잔고 등으로 표현할 수 있는 가장 대표적인 이해하기 쉬운 예)
+# class Acount:#만일 __init__에 init으로만 되어 있다면 인자는 두개만 받고, 두개 만 받기 때문에 인스턴스를 생성을 못하므로 인스턴스를 따로 Acount()로 생성해준 뒤에 그다음에 인자를 넘겨줘야한다.
+#     def __init__(self,name,amount): #생성자 , 인수로 name과 계좌 ,self 주의, self를 빼면 인스턴스가 생성이안됨
+#         self.name = name    #계좌 정보의 초기화, self는 생략 가능하지만 있는게 좋음.
+#         self.balance = amount #balance는 잔고임, 계좌의 정보를 받아와서 클래스의 멤버 값들을 초기화 시켜줌.
+#         print("%s님 계좌가 걔설되었습니다."% self.name, end =" ")
+#         print("%s 님의 잔고는 %d 입니다." % (self.name, self.balance)) #두개 이상의 멤버를 줄 땐 괄호를 씌워줘야한다.
+#         print()
+#
+#     def deposiot(self,amount):#이것도 치면 바로 self가 생성됨, 인스턴스임, 입금 함수인듯
+#         self.balance += amount
+#         print("%s님의 계좌에 %d 입급되었습니다."%(self.name,amount))
+#         print("%s님의 계좌잔고는 %d입니다."%(self.name,self.balance))
+#         print()
+#
+#     def info(self):
+#         print("%s님의 계좌잔고는 %d입니다." % (self.name, self.balance))
+#         print()
+#
+#     def withdraw(self,amount):    #출금
+#         self.balance -= amount
+#         print("%s님의 계좌에 %d 출금되었습니다."%(self.name,amount))
+#         print("%s님의 계좌잔고는 %d입니다."%(self.name,self.balance))
+#         print()
+#
+# a1 = Acount("홍길동",10000) #다른 언어처럼 new로 생성하지 않고 바로 클래스의 이름을 주어 생성, 클래스에서 넘겨받은 self은 a1임, 즉 생성하고자하는 인스턴스, 즉 참조객체
+# b1 = Acount("홍길녀",50000) #만일 클래스에서 self를 없애버리면 인스턴스가 생성이안되서 아무리 또 다른 애들을 생성하려해도 생성이안되서 오류는 안뜨지만 홍길녀것만 생길것.
+# c1 = Acount("최범규",100000)
+# b1.deposiot(500000)
+#
+# c1.deposiot(100000)  #두가지 모습으로 다 접급할 수 잇다.
+# Acount.deposiot(c1,100000) #두 모습 다 결과는 같지만 이 방법이 훨씬 더 정석의 방법이다.
+# c1.withdraw(50000)
+# Acount.withdraw(c1,50000)
+#
+# a1.info()
+# b1.info()
+# b1.withdraw(20000)
 
 
 # for 변수 in iterables(반복 가능한 객체), for 변수 in 컨테이너 값/변수
