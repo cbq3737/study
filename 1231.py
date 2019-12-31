@@ -1,26 +1,59 @@
-class Student:
-    def __init__(self,name,snumber,major,age):
-        self.name = name
-        self.snumber = snumber
-        self.age =age
-        self.major= major
+#파이썬 정규 표인식 , reqular expressions, https://regexr.com/https://regex101.com/ ->둘중 편한거 쓰면 됌.
+#ca{2}t -> a가 2번 반복하는 글자 찾기, ca{2,5}t ->2회이상 5회 이하 반복되는 글자,ca{0,}t ->전체 다 포함,ca{,3}은 인식못함
 
-    def __str__(self):
-          return "이름: %s , 학번: %d ,학과: %s,나이: %d" %(self.name,self.snumber,self.major,self.age)
+# #상속 예제
+# class Country:
+#     name ="국가명"
+#     population = "인구"
+#     capital = "인구"
+#
+#     def show(self):
+#         print("국가 클래스의 메소드")
+#
+# class Korea(Country):
+#     def __init__(self,name,population,capital):
+#         self.name = name
+#         self.population = population
+#         self.capital = capital
+#
+#     def show_name(self):
+#         print('국가 이름은 : ', self.name)
+#     def show(self):
+#         super().show() #얘가 있으므로 부모클래스의 show메소드가 재정의 되서 부모클래스의 show가 안떳지만 이 명령어를 써주면 부모클래스이 show도 호출할 수 있다.
+#         print("국가의 이름은 %s 입니다.국가의 인구는 %d 입니다.국가의 수도는 %s 입니다.: "% (self.name,self.population,self.capital))
+#
+# a= Korea("대한민국",5000000,"서울") #자식 클래스의 객체로 생성
+# a.show() # 부모클래스의 메소드
+# a.show_name()   #자기 자신인 자식클래스의 메소드
+# print(a.capital)
+# print(a.name)
 
-    def info(self):
-        print(self)
 
-    def __add__(self, other):
-        return self.age + other.age
+#Student 클래스 예제
+# class Student:
+#     def __init__(self,name,snumber,major,age):
+#         self.name = name
+#         self.snumber = snumber
+#         self.age =age
+#         self.major= major
+# 
+#     def __str__(self):
+#           return "이름: %s , 학번: %d ,학과: %s,나이: %d" %(self.name,self.snumber,self.major,self.age)
+# 
+#     def info(self):
+#         print(self)
+# 
+#     def __add__(self, other):
+#         return self.age + other.age
+# 
+# s1 = Student("최범규",201455050,"ICT",25)
+# s2 = Student("박성무",201340400,"기계",26)
+# 
+# s1.info()
+# s2.info()
+# 
+# print("둘 나이의 합: %d" % (s1+s2))
 
-s1 = Student("최범규",201455050,"ICT",25)
-s2 = Student("박성무",201340400,"기계",26)
-
-s1.info()
-s2.info()
-
-print("둘 나이의 합: %d" % (s1+s2))
 
 # 도형그리기
 # import turtle as t
