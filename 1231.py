@@ -1,6 +1,96 @@
+class Student:
+    def __init__(self,name,snumber,major,age):
+        self.name = name
+        self.snumber = snumber
+        self.age =age
+        self.major= major
 
-# #클래스:멤버와 메소드를 가지는 객체, 인스턴스: 클래스를 호출하여 만들어지는 객체(사용하려는 변수),멤버:클래스가 갖는 객체, 메소드:클래스 내에 정의된 함수, 속성(어트리뷰트) == 쿨래스의 멤버 : 멤버+메소드
-# #클래스의 예:은행계좌(소유주이름,계좌잔고 등으로 표현할 수 있는 가장 대표적인 이해하기 쉬운 예)
+    def __str__(self):
+          return "이름: %s , 학번: %d ,학과: %s,나이: %d" %(self.name,self.snumber,self.major,self.age)
+
+    def info(self):
+        print(self)
+
+    def __add__(self, other):
+        return self.age + other.age
+
+s1 = Student("최범규",201455050,"ICT",25)
+s2 = Student("박성무",201340400,"기계",26)
+
+s1.info()
+s2.info()
+
+print("둘 나이의 합: %d" % (s1+s2))
+
+# 도형그리기
+# import turtle as t
+# t.shape("turtle")
+# t.penup()
+# t.goto(-200,-50)
+# t.pendown()
+# t.begin_fill()
+# t.color("red")
+# t.circle(40,steps=3) #삼각형 그리기
+# t.end_fill()
+#
+# t.penup()
+# t.goto(-100, -50)
+# t.pendown()
+# t.begin_fill()
+# t.color("orange")
+# t.setheading(45)
+# t.circle(40, steps = 4) # 사각형 그리기
+# t.end_fill()
+#
+# t.penup()
+# t.goto(0,-50)
+# t.pendown()
+# t.begin_fill()
+# t.color("purple")
+# t.setheading(45)
+# t.pensize(5)
+# t.circle(100)    #원그리기
+# t.end_fill()
+#
+# t.penup()
+# t.goto(100, -50)
+# t.pendown()
+# t.begin_fill()
+# t.color("orange")
+# t.setheading(45)
+# t.circle(40, steps = 9) # 사각형 그리기
+# t.end_fill()
+
+#다른 파일에서 만든 클래스를 만들어서 삼각형,사각형,원의 정보를 불러온것.
+# import Shape
+# 
+# r1 =Shape.Rect(10, 20)
+# r2 =Shape.Rect(10, 10)
+# 
+# t1 = Shape.Tri(10, 20)
+# t2 = Shape.Tri(10, 10)
+# 
+# c1 = Shape.Circle(20)
+# c2 = Shape.Circle(20)
+# 
+# r1.info()
+# r2.info()
+# 
+# t1.info()
+# t2.info()
+# 
+# c1.info()
+# c2.info()
+# 
+# #r1.__add__(r2) #add연산자가 진즉에 있었는데 오버로딩 한 것 임. -> 이 함수를 다시 재정의함으로써 '+'라는 연산의 의미가 달라짐.
+# 
+# print(r1+r2) #이렇게 해주면 +는 위에 __add__로 인해 오버라이딩 되어서 이제 넓이끼리 더함이 가능해진다.
+# print(t1+t2)
+# print(c1+c2)
+# print(r1+t2)# 다른 클래스끼리 넓이의 합
+
+#클래스:멤버와 메소드를 가지는 객체, 인스턴스: 클래스를 호출하여 만들어지는 객체(사용하려는 변수),멤버:클래스가 갖는 객체, 메소드:클래스 내에 정의된 함수, 속성(어트리뷰트) == 쿨래스의 멤버 : 멤버+메소드
+#클래스의 예:은행계좌(소유주이름,계좌잔고 등으로 표현할 수 있는 가장 대표적인 이해하기 쉬운 예)
 # class Acount:#만일 __init__에 init으로만 되어 있다면 인자는 두개만 받고, 두개 만 받기 때문에 인스턴스를 생성을 못하므로 인스턴스를 따로 Acount()로 생성해준 뒤에 그다음에 인자를 넘겨줘야한다.
 #     def __init__(self,name,amount): #생성자 , 인수로 name과 계좌 ,self 주의, self를 빼면 인스턴스가 생성이안됨
 #         self.name = name    #계좌 정보의 초기화, self는 생략 가능하지만 있는게 좋음.
@@ -9,14 +99,18 @@
 #         print("%s 님의 잔고는 %d 입니다." % (self.name, self.balance)) #두개 이상의 멤버를 줄 땐 괄호를 씌워줘야한다.
 #         print()
 #
+#     def __str__(self): #스트링이 들어가야할 부분을 이렇게 정의했다고 생각하면 될 듯, __이 없으면 public이고 __있어야지만 private이다.
+#         return  "%s님의 계좌잔고는 %d입니다." % (self.name, self.balance) #스트링을 리턴하게 된다.
+#
 #     def deposiot(self,amount):#이것도 치면 바로 self가 생성됨, 인스턴스임, 입금 함수인듯
 #         self.balance += amount
 #         print("%s님의 계좌에 %d 입급되었습니다."%(self.name,amount))
 #         print("%s님의 계좌잔고는 %d입니다."%(self.name,self.balance))
 #         print()
 #
-#     def info(self):
-#         print("%s님의 계좌잔고는 %d입니다." % (self.name, self.balance))
+#     def info(self): #잔액조회
+#        # print("%s님의 계좌잔고는 %d입니다." % (self.name, self.balance))
+#         print(self) #스트링을 반환하는 함수를 호출
 #         print()
 #
 #     def withdraw(self,amount):    #출금
